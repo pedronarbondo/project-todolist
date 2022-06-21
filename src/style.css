@@ -212,8 +212,8 @@ li.selected {
   
   .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
+    background-color: rgb(250, 250, 120);
+    color: black;
   }
   
   .modal-body {
@@ -223,8 +223,14 @@ li.selected {
     gap: 15px;
     background-color: rgb(224, 223, 223);
     align-items: center;
+    font-family:'Courier New', Courier, monospace;
 }
-
+#description {
+    width: 272px;
+    height: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
 .priorityButtons {
     display: flex;
     gap: 12px;
@@ -237,8 +243,8 @@ li.selected {
     width: 9ch;
     text-align: center;
     border-radius: 4px;
-    font-family:'Courier New', Courier, monospace;
     cursor: pointer;
+    font-family:'Courier New', Courier, monospace;
     font-weight: bold;
     background-color: white;
     transition: 0.2s;
@@ -268,3 +274,25 @@ li.selected {
     color: white;
 }
 
+ input:valid:not(:placeholder-shown) {
+    outline: none;
+    border: 2px solid green;
+ }
+ #submit {
+    border-radius: 12px;
+    background-color: rgb(250, 250, 120);
+    height: 35px;
+    width: 80%;
+    border: none;
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: 0.2s;
+ }
+ #submit:hover {
+    background-color: rgb(42, 204, 42);
+ }
+
+ textarea {
+    resize: none;
+ }

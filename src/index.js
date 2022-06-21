@@ -9,11 +9,13 @@ let btn = document.getElementById("addButton");
 let span = document.getElementsByClassName("close")[0];
 let submit = document.getElementById("submit");
 
+let descriptionInput = document.getElementById("description");
+let detailsInput = document.getElementById("details");
+
 btn.onclick = function() {
   modal.style.display = "block";
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
+  descriptionInput.value = "";
+  detailsInput.value = "";
 }
 span.onclick = function() {
   modal.style.display = "none";
@@ -26,24 +28,27 @@ window.onclick = function(event) {
 submit.onclick = function() {
     modal.style.display = "none";
   }
+
 }
 
 
- function createTaskObject(description, priority, date, project) {
+ function createTaskObject(description, priority, date, project, notes) {
     class Task {
         constructor(description, priority, date, project) {
             this.description = description;
             this.priority = priority;
             this.date = `${date.getDate()}-0${date.getMonth()+1}`;
             this.project = project;
+            this.notes = notes;
         }
     }
-    let task = new Task(description, priority, date, project);
+    let task = new Task(description, priority, date, project, notes);
     return task;
 }
 
 function createTaskUserprompt() {
-
+    let userDescription = "Henlo";
+    let userPriority = "priorityHigh";
     let userDate = new Date();
     let userProject = "Inbox";
 
