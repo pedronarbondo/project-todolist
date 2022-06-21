@@ -35,17 +35,17 @@
                 <div class="modal-content">
                     <div class="modal-header">
                     <span class="close">&times;</span>
-                    <h2>Add a new task</h2>
+                    <h2>Create a new task</h2>
                     </div>
                     <div class="modal-body">
-                    <input name="description" id="title" type="text" placeholder="Title" required>
-                    <input name="priorityType" id="author" type="text" placeholder="Author" required>
+                    <input name="description" id="description" type="text" placeholder="What needs doing?" required>
+                    <textarea id="details" placeholder="Some details..." rows="5" cols="35"></textarea>
                     <div class="priorityButtons">
-                        <button class="low">Low</button>
-                        <button class="medium">Medium</button>
-                        <button class="high">High</button>
+                        <input type="button" class="low" value="Low">
+                        <input type="button" class="medium" value="Medium">
+                        <input type="button" class="high" value="High">
                     </div>
-                    <button id="submit">Submit</button>
+                    <button id="submit">Add</button>
                     </div>
                 </div>
             </div>
