@@ -55,8 +55,13 @@ li.selected {
     font-weight: bold;
 }
 
-.addProject,
 .addTask {
+    display: flex;
+    place-items: center center;
+    flex-direction: column;
+}
+.addProject,
+#addButton {
     border: none;
     background-color: inherit;
     font-weight: bold;
@@ -68,7 +73,7 @@ li.selected {
     padding: 6px 15px 6px;
 }
 .addProject:hover,
-.addTask:hover {
+#addButton:hover {
     background-color: rgb(189, 187, 187);
 }
 
@@ -146,3 +151,120 @@ li.selected {
 .isComplete:checked~.taskText {
     text-decoration: line-through;
 }
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 400px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    font-family:'Courier New', Courier, monospace;
+  }
+  
+  /* Add Animation */
+  @-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+  }
+  
+  @keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+  }
+  
+  /* The Close Button */
+  .close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+  }
+  
+  .modal-body {
+    padding: 15px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background-color: rgb(224, 223, 223);
+    align-items: center;
+}
+
+.priorityButtons {
+    display: flex;
+    gap: 12px;
+}
+.low,
+.medium,
+.high {
+    padding-top: 3px;
+    padding-bottom: 3px;
+    width: 9ch;
+    text-align: center;
+    border-radius: 4px;
+    font-family:'Courier New', Courier, monospace;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: white;
+    transition: 0.2s;
+}
+.low {
+    border: 1px solid rgb(252, 184, 57);
+    color: rgb(252, 184, 57);;
+}
+.medium {
+    border: 1px solid orange;
+    color: orange;
+}
+.high {
+    border: 1px solid red;
+    color: red;
+}
+.low:focus {
+    background-color: rgb(252, 184, 57);
+    color: white;
+}
+.medium:focus {
+    background-color: orange;
+    color: white;
+}
+.high:focus {
+    background-color: red;
+    color: white;
+}
+

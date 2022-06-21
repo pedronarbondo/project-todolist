@@ -1,7 +1,35 @@
 import Edit from "../src/img/edit.png";
 import DeleteIcon from "../src/img/trash.png";
 
-function createTaskObject(description, priority, date, project) {
+
+function runModal() {
+    // I borrowed this modal from W3Schools
+let modal = document.getElementById("myModal");
+let btn = document.getElementById("addButton");
+let span = document.getElementsByClassName("close")[0];
+let submit = document.getElementById("submit");
+
+btn.onclick = function() {
+  modal.style.display = "block";
+  titleInput.value = "";
+  authorInput.value = "";
+  pagesInput.value = "";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+submit.onclick = function() {
+    modal.style.display = "none";
+  }
+}
+
+
+ function createTaskObject(description, priority, date, project) {
     class Task {
         constructor(description, priority, date, project) {
             this.description = description;
@@ -15,8 +43,7 @@ function createTaskObject(description, priority, date, project) {
 }
 
 function createTaskUserprompt() {
-    let userDescription = prompt("Description")
-    let userPriority = prompt("Priority");
+
     let userDate = new Date();
     let userProject = "Inbox";
 
@@ -70,6 +97,7 @@ function createUserDom() {
 }
 
 function pressAddTask() {
+    runModal();
     let addTask = document.getElementsByClassName("addTask")[0];
     addTask.onclick= createUserDom;
 }

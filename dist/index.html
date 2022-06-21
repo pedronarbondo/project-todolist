@@ -28,7 +28,28 @@
         </div>
     </div>
     <div id="main">
-        <button class="addTask">+ Add Task</button>
+        <div class="addTask">
+            <button id="addButton">+ Add Task</button>
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Add a new task</h2>
+                    </div>
+                    <div class="modal-body">
+                    <input name="description" id="title" type="text" placeholder="Title" required>
+                    <input name="priorityType" id="author" type="text" placeholder="Author" required>
+                    <div class="priorityButtons">
+                        <button class="low">Low</button>
+                        <button class="medium">Medium</button>
+                        <button class="high">High</button>
+                    </div>
+                    <button id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="task priorityHigh">
             <div class="taskLeft">
                 <input type="checkbox" class="isComplete">
