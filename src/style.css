@@ -55,7 +55,8 @@ li.selected {
     font-weight: bold;
 }
 
-.addProject {
+.addProject,
+.addTask {
     border: none;
     background-color: inherit;
     font-weight: bold;
@@ -66,7 +67,8 @@ li.selected {
     height: 2rem;
     padding: 6px 15px 6px;
 }
-.addProject:hover {
+.addProject:hover,
+.addTask:hover {
     background-color: rgb(189, 187, 187);
 }
 
@@ -76,7 +78,7 @@ li.selected {
     margin-top: 0px;
 }
 
-.main {
+#main {
     grid-column: 2/-1;
     grid-row: 2/-1;
     margin: 12px;
@@ -100,11 +102,17 @@ li.selected {
     justify-content: space-between;
     font-family: 'Courier New', Courier, monospace;
     font-size: 0.8rem;
+    transition: 0.3s;
 }
+.task:hover {
+    transform: scale(1.025);
+}
+
 .edit,
 .delete {
     width: 20px;
     height: 20px;
+    cursor: pointer;
 }
 .taskLeft,
 .taskRight {
@@ -124,4 +132,17 @@ li.selected {
 .details:hover {
     background-color: rgb(101, 201, 166);
     color: white;
+}
+
+.priorityHigh {
+    border-left: 6px solid red;
+}
+.priorityMed {
+    border-left: 6px solid orange;
+}
+.priorityLow {
+    border-left: 6px solid rgb(252, 184, 57);
+}
+.isComplete:checked~.taskText {
+    text-decoration: line-through;
 }

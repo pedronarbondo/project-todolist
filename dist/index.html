@@ -27,10 +27,11 @@
             <button class="addProject">+ Add Project</button>
         </div>
     </div>
-    <div class="main">
-        <div class="task">
+    <div id="main">
+        <button class="addTask">+ Add Task</button>
+        <div class="task priorityHigh">
             <div class="taskLeft">
-                <input type="checkbox" class="isComplete" name="isComplete">
+                <input type="checkbox" class="isComplete">
                 <p class="taskText">finish project To Do list</p>
             </div>  
             <div class="taskRight">
@@ -40,7 +41,17 @@
                 <img class="delete" src="../src/img/trash.png">
             </div>
         </div>
-        <div class="task">
+        <div class="task priorityLow">
+            <div class="taskLeft">
+                <input type="checkbox" class="isComplete" checked>
+                <p class="taskText">add strikethrough functionality</p>
+            </div>  
+            <div class="taskRight">
+                <button class="details">DETAILS</button>
+                <p class="date">21-06</p>
+                <img class="edit" src="../src/img/edit.png">
+                <img class="delete" src="../src/img/trash.png">
+            </div>
         </div>
     </div>
 </body>
