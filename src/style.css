@@ -1,14 +1,13 @@
 
 body {
     font-family:Arial, Helvetica, sans-serif;
-    width: 100%;
     height: 100%;
     padding: 0;
     margin: 0;
     background-color: rgb(248, 248, 248);
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    display: grid;
+    grid-template-rows: 150px 1000px;
+    grid-template-columns: 200px 1fr;
 }
 
 header {
@@ -19,10 +18,13 @@ header {
     height: max(150px, 20%);
     background-color: rgb(250, 250, 120);
     box-shadow: 4px 4px 10px black;
+    grid-row: 1/2;
+    grid-column: 1/-1;
 }
 
 .sideBar {
-    width: max(150px, 10%);
+    grid-row: 2 / -1;
+    grid-column: 1 / 2;
     background-color: rgb(223, 223, 223);
     margin-bottom: -101%;
     padding-bottom: 101%; 
@@ -72,4 +74,54 @@ li.selected {
     background: url(../src/img/checklistProject.png) left center no-repeat;
     padding-left: 52px;
     margin-top: 0px;
+}
+
+.main {
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+    margin: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 12px;
+    padding-left: 12px;
+}
+.task {
+    box-sizing: border-box;
+    background-color: rgb(236, 235, 235);
+    opacity: 0.8;
+    padding: 12px;
+    border-radius: 5px;
+    width: max(200px, 90%);
+    height: 50px;
+    box-shadow: 2px 2px 6px black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+}
+.edit,
+.delete {
+    width: 20px;
+    height: 20px;
+}
+.taskLeft,
+.taskRight {
+    display: flex;
+    gap: 14px;
+    place-items: center center;
+}
+.details {
+    padding: 4px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: rgb(78, 158, 131);
+    transition: 0.2s;
+}
+.details:hover {
+    background-color: rgb(101, 201, 166);
+    color: white;
 }
