@@ -36,7 +36,6 @@ submit.onclick = function() {
     let now = new Date()
     let priorityInputValue = document.querySelector('input[name="priority"]:checked').value;
     createUserDom(descriptionInput.value, priorityInputValue, now, "Inbox", detailsInput.value);
-    runDetails();
   }
 }
 
@@ -69,6 +68,7 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     let date = document.createElement("p");
     let edit = document.createElement("img");
     let deleteButton = document.createElement("img");
+    let notes = document.createElement("p");
 
     /* Task Content classes*/
     taskDiv.classList.add("task", myTask.priority);
@@ -79,12 +79,14 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     details.classList.add("details");
     date.classList.add("date");
     edit.classList.add("edit");
-    deleteButton.classList.add("delete")
+    deleteButton.classList.add("delete");
+    notes.classList.add("notes");
 
     /* Text contents*/
     taskText.textContent = myTask.description;
     details.textContent = "DETAILS";
     date.textContent = myTask.date;
+    notes.textContent = myTask.notes;
 
     /* Properties */
     edit.src = Edit;
@@ -92,12 +94,13 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     checkbox.setAttribute("type", "checkbox");
     
     /* Appendages */
-    taskRight.append(details, date, edit, deleteButton);
+    taskRight.append(notes, details, date, edit, deleteButton);
     taskLeft.append(checkbox, taskText);
     taskDiv.append(taskLeft, taskRight);
     mainDiv.append(taskDiv);
-    
+
     pressDelete();
+    runDetails();
 }
 function pressDelete() {
     let mainSection = document.getElementById("main");
@@ -123,23 +126,24 @@ let prioritySection = document.getElementsByClassName("prioritySection")[0];
 let detailsSection= document.getElementsByClassName("detailsSection")[0];
 
 
-
 let descriptionContent = document.createElement("p");
 let priorityContent = document.createElement("p");
 let detailsContent = document.createElement("p");
 
-descriptionContent.textContent = "Hello";
-priorityContent.textContent = "Medium";
-detailsContent.textContent = "hello hello hello hello hello hello hello hello hello ";
-
-descriptionSection.append(descriptionContent);
-prioritySection.append(priorityContent);
-detailsSection.append(detailsContent);
-
 
   btns.forEach(btn => btn.onclick = function() {
   modal.style.display = "block";
+
+  descriptionContent.textContent;
+  priorityContent.textContent;
+  detailsContent.textContent;
+
+  descriptionSection.append(descriptionContent);
+  prioritySection.append(priorityContent);
+  detailsSection.append(detailsContent);
+  
     });
+    
   span.onclick = function() {
   modal.style.display = "none";
   }
@@ -153,3 +157,20 @@ detailsSection.append(detailsContent);
 runDetails();
 runModal()
 
+/*
+  btns.forEach(btn => btn.addEventListener("click", function() {
+  modal.style.display = "block";
+
+  let target = event.target;
+  let currentTask = target.parentElement.parentElement;
+  
+  descriptionContent.textContent = currentTask.firstChild.firstElementChild.nextElementSibling.value;
+  priorityContent.textContent = currentTask.classList[2];
+  detailsContent.textContent = currentTask.firstChild.nextSibling.firsElementChild.value;
+
+  descriptionSection.append(descriptionContent);
+  prioritySection.append(priorityContent);
+  detailsSection.append(detailsContent);
+  
+    });
+*/

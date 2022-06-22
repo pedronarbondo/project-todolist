@@ -313,7 +313,9 @@ input[type='radio']:checked + #high {
 }
 
 
-
+.notes {
+    display: none;
+}
 
 
  input:valid:not(:placeholder-shown) {
