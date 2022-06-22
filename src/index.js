@@ -10,13 +10,18 @@ let span = document.getElementsByClassName("close")[0];
 let submit = document.getElementById("submit");
 
 let descriptionInput = document.getElementById("description");
-let priorityInput = document.querySelector("input[type='radio'][name='priority']");
+let priorityInput = Array.from(document.getElementsByName('priority'));
 let detailsInput = document.getElementById("details");
 
 btn.onclick = function() {
   modal.style.display = "block";
   descriptionInput.value = "";
   detailsInput.value = "";
+  priorityInput.forEach(button => {
+    if (button.checked) {
+      button.checked = false
+    }
+  });
 }
 span.onclick = function() {
   modal.style.display = "none";
@@ -29,7 +34,9 @@ window.onclick = function(event) {
 submit.onclick = function() {
     modal.style.display = "none";
     let now = new Date()
-    createUserDom(descriptionInput.value, priorityInput.value, now, "Inbox", detailsInput.value);
+    let priorityInputValue = document.querySelector('input[name="priority"]:checked').value;
+    console.log(priorityInputValue);
+    createUserDom(descriptionInput.value, priorityInputValue, now, "Inbox", detailsInput.value);
   }
 
 }
