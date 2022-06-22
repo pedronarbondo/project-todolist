@@ -35,10 +35,9 @@ submit.onclick = function() {
     modal.style.display = "none";
     let now = new Date()
     let priorityInputValue = document.querySelector('input[name="priority"]:checked').value;
-    console.log(priorityInputValue);
     createUserDom(descriptionInput.value, priorityInputValue, now, "Inbox", detailsInput.value);
+    runDetails();
   }
-
 }
 
 
@@ -55,7 +54,6 @@ submit.onclick = function() {
     let task = new Task(description, priority, date, project, notes);
     return task;
 }
-
 
 function createUserDom(userDescription, userPriority, userDate, userProject, userDetails) {
     let myTask = createTaskObject(userDescription, userPriority, userDate, userProject, userDetails);
@@ -101,7 +99,6 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     
     pressDelete();
 }
-
 function pressDelete() {
     let mainSection = document.getElementById("main");
     let deleteButton = Array.from(document.getElementsByClassName("delete"));
@@ -114,4 +111,45 @@ function pressDelete() {
     })
 }
 
-runModal();
+
+
+function runDetails() {
+  // I borrowed this modal from W3Schools
+let modal = document.getElementById("modal2");
+let btns = Array.from(document.getElementsByClassName("details"));
+let span = document.getElementsByClassName("close")[1];
+let descriptionSection = document.getElementsByClassName("descriptionSection")[0];
+let prioritySection = document.getElementsByClassName("prioritySection")[0];
+let detailsSection= document.getElementsByClassName("detailsSection")[0];
+
+
+
+let descriptionContent = document.createElement("p");
+let priorityContent = document.createElement("p");
+let detailsContent = document.createElement("p");
+
+descriptionContent.textContent = "Hello";
+priorityContent.textContent = "Medium";
+detailsContent.textContent = "hello hello hello hello hello hello hello hello hello ";
+
+descriptionSection.append(descriptionContent);
+prioritySection.append(priorityContent);
+detailsSection.append(detailsContent);
+
+
+  btns.forEach(btn => btn.onclick = function() {
+  modal.style.display = "block";
+    });
+  span.onclick = function() {
+  modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+  }
+}
+
+runDetails();
+runModal()
+
