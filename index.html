@@ -41,9 +41,14 @@
                     <input name="description" id="description" type="text" placeholder="What needs doing?" required>
                     <textarea id="details" placeholder="Some details..." rows="5" cols="35"></textarea>
                     <div class="priorityButtons">
-                        <input type="button" class="low" value="Low">
-                        <input type="button" class="medium" value="Medium">
-                        <input type="button" class="high" value="High">
+                        <input type="radio" name="priority" id="chk1" value="priorityLow">
+                        <label id="low" for="chk1">Low</label>
+
+                        <input type="radio" name="priority" id="chk2" value="priorityMed">
+                        <label id="medium" for="chk2">Medium</label>
+
+                        <input type="radio" name="priority" id="chk3" value="priorityHigh">
+                        <label id="high" for="chk3">High</label>
                     </div>
                     <button id="submit">Add</button>
                     </div>
