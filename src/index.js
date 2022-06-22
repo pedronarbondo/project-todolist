@@ -10,6 +10,7 @@ let span = document.getElementsByClassName("close")[0];
 let submit = document.getElementById("submit");
 
 let descriptionInput = document.getElementById("description");
+let priorityInput = document.querySelector("input[type='radio'][name='priority']");
 let detailsInput = document.getElementById("details");
 
 btn.onclick = function() {
@@ -27,6 +28,8 @@ window.onclick = function(event) {
 }
 submit.onclick = function() {
     modal.style.display = "none";
+    let now = new Date()
+    createUserDom(descriptionInput.value, priorityInput.value, now, "Inbox", detailsInput.value);
   }
 
 }
@@ -46,18 +49,9 @@ submit.onclick = function() {
     return task;
 }
 
-function createTaskUserprompt() {
-    let userDescription = "Henlo";
-    let userPriority = "priorityHigh";
-    let userDate = new Date();
-    let userProject = "Inbox";
 
-    let userTask = createTaskObject(userDescription, userPriority, userDate, userProject);
-    return userTask
-}
-
-function createUserDom() {
-    let myTask = createTaskUserprompt();
+function createUserDom(userDescription, userPriority, userDate, userProject, userDetails) {
+    let myTask = createTaskObject(userDescription, userPriority, userDate, userProject, userDetails);
     let mainDiv = document.getElementById("main");
 
     /* Task Content */
@@ -101,12 +95,6 @@ function createUserDom() {
     pressDelete();
 }
 
-function pressAddTask() {
-    runModal();
-    let addTask = document.getElementsByClassName("addTask")[0];
-    addTask.onclick= createUserDom;
-}
-
 function pressDelete() {
     let mainSection = document.getElementById("main");
     let deleteButton = Array.from(document.getElementsByClassName("delete"));
@@ -119,5 +107,4 @@ function pressDelete() {
     })
 }
 
-pressAddTask();
-
+runModal();

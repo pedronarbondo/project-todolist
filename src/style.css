@@ -197,7 +197,7 @@ li.selected {
   
   /* The Close Button */
   .close {
-    color: white;
+    color: black;
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -235,9 +235,13 @@ li.selected {
     display: flex;
     gap: 12px;
 }
-.low,
-.medium,
-.high {
+
+input[type='radio'] { 
+    display:none; 
+}
+
+input[type='radio'] + label {
+    display:inline-block;
     padding-top: 3px;
     padding-bottom: 3px;
     width: 9ch;
@@ -248,31 +252,50 @@ li.selected {
     font-weight: bold;
     background-color: white;
     transition: 0.2s;
-}
-.low {
+  }
+  
+#low {
     border: 1px solid rgb(252, 184, 57);
     color: rgb(252, 184, 57);;
 }
-.medium {
+#medium {
     border: 1px solid orange;
     color: orange;
 }
-.high {
+#high {
     border: 1px solid red;
     color: red;
 }
-.low:focus {
-    background-color: rgb(252, 184, 57);
+#low:hover {
+    background-color: rgb(245, 245, 73);
     color: white;
 }
-.medium:focus {
+#medium:hover {
     background-color: orange;
     color: white;
 }
-.high:focus {
+#high:hover {
     background-color: red;
     color: white;
 }
+
+/* Styling for labels when corresponding checkbox is checked */
+input[type='radio']:checked + #low {
+    background-color: rgb(245, 245, 73);
+    color: white;
+}
+input[type='radio']:checked + #medium {
+    background-color: orange;
+    color: white;
+}
+input[type='radio']:checked + #high {
+    background-color: red;
+    color: white;
+}
+
+
+
+
 
  input:valid:not(:placeholder-shown) {
     outline: none;
