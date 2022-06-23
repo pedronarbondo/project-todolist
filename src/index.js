@@ -1,4 +1,5 @@
 import DeleteIcon from "../src/img/trash.png";
+import './style.css';
 
 function runModal() {
     // I borrowed this modal from W3Schools
@@ -164,7 +165,6 @@ function makeDetails() {
         })
     })
 }
-
 runDetails();
 runModal()
 
