@@ -145,10 +145,19 @@ function makeDetails() {
             let currentTaskDescription = currentTask.querySelector(".taskText").textContent;
             descriptionPara.textContent = currentTaskDescription;
             
-            let currentTaskPriority = currentTask.classList[1];
-
-            console.log(currentTaskPriority)
-            priorityPara.textContent = currentTaskPriority;
+            let humanWordsPriorityValue = (function changePriorityValue() {
+              let currentTaskPriority = currentTask.classList[1];
+              switch (currentTaskPriority) {
+                case "priorityLow":
+                  return "Not urgent at all";
+                case "priorityMed":
+                  return "Kinda Urgent";
+                case "priorityHigh":
+                  return "URGENT!";
+              }
+            })();
+            console.log(humanWordsPriorityValue)
+            priorityPara.textContent = humanWordsPriorityValue;
 
             let currentTaskNotes = currentTask.querySelector(".notes").textContent;
             detailsPara.textContent = currentTaskNotes;
