@@ -1,6 +1,5 @@
 import DeleteIcon from "../src/img/trash.png";
 
-
 function runModal() {
     // I borrowed this modal from W3Schools
 let modal = document.getElementById("myModal");
@@ -31,10 +30,12 @@ window.onclick = function(event) {
   }
 }
 submit.onclick = function() {
+ 
     modal.style.display = "none";
     let now = new Date()
     let priorityInputValue = document.querySelector('input[name="priority"]:checked').value;
     createUserDom(descriptionInput.value, priorityInputValue, now, "Inbox", detailsInput.value);
+    makeDetails();
   }
 }
 
@@ -110,14 +111,15 @@ function pressDelete() {
     })
 }
 
-function runDetails(description, priority, notes) {
+function runDetails() {
   // I borrowed this modal from W3Schools
 let modal = document.getElementById("modal2");
 let btns = Array.from(document.getElementsByClassName("details"));
 let span = document.getElementsByClassName("close")[1];
 
-  btns.forEach(btn => btn.addEventListener("click", function(event) {
+  btns.forEach(btn => btn.addEventListener("click", function() {
   modal.style.display = "block";
+  makeDetails();
     }));
   span.onclick = function() {
   modal.style.display = "none";
@@ -128,6 +130,32 @@ let span = document.getElementsByClassName("close")[1];
   }
   }
 }
+
+function makeDetails() {
+  let detailsButton = Array.from(document.getElementsByClassName("details"));
+  let descriptionPara = document.getElementById("descriptionP");
+  let priorityPara = document.getElementById("priorityP");
+  let detailsPara = document.getElementById("detailsP");
+
+    detailsButton.forEach(button => {
+        button.addEventListener("click", function(event) {
+            let target = event.target;
+            let currentTask = target.parentElement.parentElement;
+            
+            let currentTaskDescription = currentTask.querySelector(".taskText").textContent;
+            descriptionPara.textContent = currentTaskDescription;
+            
+            let currentTaskPriority = currentTask.classList[1];
+
+            console.log(currentTaskPriority)
+            priorityPara.textContent = currentTaskPriority;
+
+            let currentTaskNotes = currentTask.querySelector(".notes").textContent;
+            detailsPara.textContent = currentTaskNotes;
+        })
+    })
+}
+
 runDetails();
 runModal()
 
