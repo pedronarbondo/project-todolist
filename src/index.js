@@ -1,4 +1,3 @@
-import Edit from "../src/img/edit.png";
 import DeleteIcon from "../src/img/trash.png";
 
 
@@ -66,7 +65,6 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     let taskText = document.createElement("p");
     let details = document.createElement("button");
     let date = document.createElement("p");
-    let edit = document.createElement("img");
     let deleteButton = document.createElement("img");
     let notes = document.createElement("p");
 
@@ -78,7 +76,6 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     taskText.classList.add("taskText");
     details.classList.add("details");
     date.classList.add("date");
-    edit.classList.add("edit");
     deleteButton.classList.add("delete");
     notes.classList.add("notes");
 
@@ -89,16 +86,15 @@ function createUserDom(userDescription, userPriority, userDate, userProject, use
     notes.textContent = myTask.notes;
 
     /* Properties */
-    edit.src = Edit;
     deleteButton.src = DeleteIcon;
     checkbox.setAttribute("type", "checkbox");
     
     /* Appendages */
-    taskRight.append(notes, details, date, edit, deleteButton);
+    taskRight.append(notes, details, date, deleteButton);
     taskLeft.append(checkbox, taskText);
     taskDiv.append(taskLeft, taskRight);
     mainDiv.append(taskDiv);
-
+  
     pressDelete();
     runDetails();
 }
@@ -114,36 +110,15 @@ function pressDelete() {
     })
 }
 
-
-
-function runDetails() {
+function runDetails(description, priority, notes) {
   // I borrowed this modal from W3Schools
 let modal = document.getElementById("modal2");
 let btns = Array.from(document.getElementsByClassName("details"));
 let span = document.getElementsByClassName("close")[1];
-let descriptionSection = document.getElementsByClassName("descriptionSection")[0];
-let prioritySection = document.getElementsByClassName("prioritySection")[0];
-let detailsSection= document.getElementsByClassName("detailsSection")[0];
 
-
-let descriptionContent = document.createElement("p");
-let priorityContent = document.createElement("p");
-let detailsContent = document.createElement("p");
-
-
-  btns.forEach(btn => btn.onclick = function() {
+  btns.forEach(btn => btn.addEventListener("click", function(event) {
   modal.style.display = "block";
-
-  descriptionContent.textContent;
-  priorityContent.textContent;
-  detailsContent.textContent;
-
-  descriptionSection.append(descriptionContent);
-  prioritySection.append(priorityContent);
-  detailsSection.append(detailsContent);
-  
-    });
-    
+    }));
   span.onclick = function() {
   modal.style.display = "none";
   }
@@ -153,24 +128,6 @@ let detailsContent = document.createElement("p");
   }
   }
 }
-
 runDetails();
 runModal()
 
-/*
-  btns.forEach(btn => btn.addEventListener("click", function() {
-  modal.style.display = "block";
-
-  let target = event.target;
-  let currentTask = target.parentElement.parentElement;
-  
-  descriptionContent.textContent = currentTask.firstChild.firstElementChild.nextElementSibling.value;
-  priorityContent.textContent = currentTask.classList[2];
-  detailsContent.textContent = currentTask.firstChild.nextSibling.firsElementChild.value;
-
-  descriptionSection.append(descriptionContent);
-  prioritySection.append(priorityContent);
-  detailsSection.append(detailsContent);
-  
-    });
-*/
