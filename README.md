@@ -1,5 +1,5 @@
 # project-todolist
-See it hosted live (WIP) @ https://pedronarbondo.github.io/project-todolist/
+See it hosted live (WIP) @ Unfortunately, a live view for this is not available yet. If you'd like to see the current progress so far, please clone the repo and run it in-browser!
 
 Honestly, I underestimated this project.
 
